@@ -2,7 +2,6 @@ const fs = require("fs");
 
 const inputUrl = process.argv[2];
 const splittedInputUrl = inputUrl.split('.');
-const ext = splittedInputUrl[splittedInputUrl.length -1];
 
 
 function readFile(url){
