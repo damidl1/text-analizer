@@ -1,0 +1,14 @@
+1-trovare un modo per evitare di trasformare in numero una stringa che inizia con un numero
+
+2-creare un'applicazione node che legga un qualsiasi file di testo
+e nella stessa cartella in cui lo legge scriva un file che si chiama 
+come l'originale aggiungendo '-report'
+es pippo.txt => pippo-report.txt;
+
+numero caratteri: 400 (non compresi gli spazi)
+numero parole: 100
+
+
+task aggiuntivi:
+a) carattere con più occorrenze: e
+b) parola con più occorrenze: un
