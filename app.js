@@ -79,7 +79,31 @@ function countWords(data) {
  const dataArray = data.split(' ');
  return dataArray.length;
 
+}
 
+function topOccurencyInArray(arr) {
+    
+    let occurrencyMap = {};
+    for (let i = 0; i < arr.length; i++) {
+
+        const el = arr[i];
+
+        if(occurrencyMap[el]){
+            occurrencyMap[el]+=1;
+        }else{
+            occurrencyMap[el]=1;
+        }
+    }
+
+    const keyValues = Object.entries(occurrencyMap);
+
+    keyValues.sort((e1,e2) =>{
+        const firstValue = e1[1];
+        const secondValue = e2[1];
+        return secondValue - firstValue;
+    });
+
+    return keyValues[0][0];
 }
 
 
@@ -87,29 +111,30 @@ function countWords(data) {
 function mostUsedChar(data) {
     
     const dataWithoutSpaces = data.replace(/ /g, ''); // per rimuovere tutti gli spazi che ci sono (sia prima, che dopo che dentro le stringhe)
+    return topOccurencyInArray(dataWithoutSpaces);
 
-    let charMap = {};
+//     let charMap = {};
 
-    for (let i = 0; i < dataWithoutSpaces.length; i++) {
-        const char = dataWithoutSpaces[i];
+//     for (let i = 0; i < dataWithoutSpaces.length; i++) {
+//         const char = dataWithoutSpaces[i];
         
-        if (charMap[char]) {
-            charMap[char] += 1; // se la lettera c'è già aumenta il conto di 1
-        } else {
-            charMap[char] = 1;  // se la lettera non c'è ancora crea una nuova proprietà e quando incontra lettere già presenti le aggiunge
-        }
-    }
+//         if (charMap[char]) {
+//             charMap[char] += 1; // se la lettera c'è già aumenta il conto di 1
+//         } else {
+//             charMap[char] = 1;  // se la lettera non c'è ancora crea una nuova proprietà e quando incontra lettere già presenti le aggiunge
+//         }
+//     }
   
 
-  const keyValues = Object.entries(charMap);
-  keyValues.sort((e1, e2) => {
-    const firstValue = e1[1];
-    const secondValue = e2[1];
-    return secondValue - firstValue;
+//   const keyValues = Object.entries(charMap);
+//   keyValues.sort((e1, e2) => {
+//     const firstValue = e1[1];
+//     const secondValue = e2[1];
+//     return secondValue - firstValue;
 
- });
+//  });
 
- return keyValues[0][0];  // prendiamo il primo elemento mettendo indice 0 e per prendere il secondo 
+//  return keyValues[0][0];  // prendiamo il primo elemento mettendo indice 0 e per prendere il secondo 
  
 
 }
@@ -119,26 +144,29 @@ function mostUsedChar(data) {
 function mostUsedWord(data) {
     
     const splittedData = data.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()(\r\n|\n|\r)]/g,"").split(' ');
-    let wordMap = {};
+    return topOccurencyInArray(splittedData);
 
-    for (let i = 0; i < splittedData.length; i++) {
-        const word = splittedData[i];
 
-        if (wordMap[word]) {
-            wordMap[word] += 1;
-        } else {
-            wordMap[word] = 1;
-        }
+//     let wordMap = {};
+
+//     for (let i = 0; i < splittedData.length; i++) {
+//         const word = splittedData[i];
+
+//         if (wordMap[word]) {
+//             wordMap[word] += 1;
+//         } else {
+//             wordMap[word] = 1;
+//         }
         
-    }
-    const keyValues = Object.entries(wordMap);
-    keyValues.sort((e1, e2) => {
-      const firstValue = e1[1];
-      const secondValue = e2[1];
-      return secondValue - firstValue;
+//     }
+//     const keyValues = Object.entries(wordMap);
+//     keyValues.sort((e1, e2) => {
+//       const firstValue = e1[1];
+//       const secondValue = e2[1];
+//       return secondValue - firstValue;
   
-   });
+//    });
   
-   return keyValues[0][0];
+//    return keyValues[0][0];
 
 }
