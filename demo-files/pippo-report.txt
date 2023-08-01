@@ -1,0 +1,4 @@
+numero di caratteri: 2365
+numero di parole: 404
+carattere più usato: e
+parola con più occorrenze: et
